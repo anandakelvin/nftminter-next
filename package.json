@@ -6,12 +6,22 @@
     "start": "next start"
   },
   "dependencies": {
+    "@alch/alchemy-web3": "^1.1.9",
+    "@openzeppelin/contracts": "^4.4.1",
+    "@pinata/sdk": "^1.1.23",
+    "dotenv": "^10.0.0",
+    "formidable": "^2.0.1",
+    "framer-motion": "^5.5.5",
+    "hardhat": "^2.8.0",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-google-recaptcha": "^2.1.0"
   },
   "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.3",
     "autoprefixer": "^10.4.0",
+    "ethers": "^5.5.2",
     "postcss": "^8.4.4",
     "tailwindcss": "^3.0.0"
   }
