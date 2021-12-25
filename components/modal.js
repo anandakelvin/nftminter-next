@@ -12,8 +12,8 @@ export default function Modal({ children, show }) {
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
 						>
-							<div className="rounded-xl bg-white w-full p-10 shadow-2xl">
-								{children}
+							<div className="rounded-xl bg-white w-full shadow-2xl">
+								<div className="rounded-xl shadow-inner p-10">{children}</div>
 							</div>
 						</motion.div>
 					</div>
