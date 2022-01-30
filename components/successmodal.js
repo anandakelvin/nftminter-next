@@ -12,7 +12,7 @@ export default function SuccessModal({ show, setShow, address }) {
 				>
 					this link
 				</a>{" "}
-				to confirm your NFT retrieval
+				to confirm your NFT retrieval. Notice the txn age.
 			</p>
 			<div className="mt-4 flex justify-end">
 				<button
