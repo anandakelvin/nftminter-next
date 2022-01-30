@@ -1,5 +1,14 @@
 import Head from "next/head";
 
+export async function getServerSideProps() {
+	return {
+		redirect: {
+			permanent: false,
+			destination: "/eth-ropsten-network",
+		},
+	};
+}
+
 export default function Home() {
 	return (
 		<div className="flex flex-col items-center justify-center min-h-screen py-2">

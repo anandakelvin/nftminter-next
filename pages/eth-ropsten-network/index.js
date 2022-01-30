@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import FileForm from "../../components/fileform";
 import Navbar from "../../components/navbar";
 import Screen from "../../components/screen";
@@ -8,6 +9,7 @@ import SuccessModal from "../../components/successmodal";
 import TimeoutModal from "../../components/timeoutmodal";
 
 export default function NFTMinter() {
+	const [verified, setVerified] = useState(false);
 	const [timeoutModal, toggleTimeoutModal] = useState(false);
 	const [successModal, toggleSuccessModal] = useState(false);
 	const [loading, setLoading] = useState(false);
@@ -51,6 +53,10 @@ export default function NFTMinter() {
 			return () => clearTimeout(kill);
 		}
 	}, [loading]);
+
+	function handleCaptcha(value) {
+		setVerified(value);
+	}
 
 	async function handleSubmit() {
 		setLoading(true);
@@ -97,7 +103,15 @@ export default function NFTMinter() {
 								>
 									Create{" "}
 								</span>
-								your own NFT with ease.
+								your own NFT in{" "}
+								<a
+									className="underline"
+									href="https://www.google.com/search?q=what is ropsten test network"
+									target="_blank"
+								>
+									Ropsten
+								</a>{" "}
+								network!
 							</h1>
 						</motion.div>
 					</div>
@@ -208,12 +222,23 @@ export default function NFTMinter() {
 													className="mt-1 p-3 border rounded-lg block w-full text-black text-base"
 												/>
 											</div>
-											<div className="flex justify-end">
+											<div className="flex flex-col lg:flex-row justify-between my-5 items-center">
+												<ReCAPTCHA
+													sitekey={process.env.CAPTCHA_SITE_KEY}
+													onChange={handleCaptcha}
+												/>
 												<button
+													disabled={
+														!verified ||
+														!title ||
+														!description ||
+														!address ||
+														!file
+													}
 													onClick={() => {
 														handleSubmit();
 													}}
-													className="mt-2 p-4 py-2 text-sm rounded-md bg-blue-800 text-white text-center hover:scale-110 active:scale-90 transform transition ease-in-out"
+													className="disabled:opacity-50 mt-2 p-4 py-2 text-sm rounded-md bg-blue-800 text-white text-center hover:scale-110 active:scale-90 transform transition ease-in-out"
 												>
 													Proceed to mint
 												</button>
@@ -241,7 +266,7 @@ export default function NFTMinter() {
 			</div>
 			<div className="bg-darkGunmetal border-t-10 border-violetsAreBlue">
 				<div className="p-5 py-2 container mx-auto flex text-spanishGray text-xs">
-					<p>© 2022</p>
+					<p>© www.anandakelv.in 2021</p>
 				</div>
 			</div>
 		</Screen>
