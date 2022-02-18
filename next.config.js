@@ -1,4 +1,16 @@
+const nextSafe = require("next-safe");
+
+const isDev = process.env.NODE_ENV !== "production";
+
 module.exports = {
+	async headers() {
+		return [
+			{
+				source: "/:path*",
+				headers: nextSafe({ isDev }),
+			},
+		];
+	},
 	async redirects() {
 		return [
 			{
