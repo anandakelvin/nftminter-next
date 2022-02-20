@@ -7,7 +7,7 @@ module.exports = {
 		return [
 			{
 				source: "/:path*",
-				headers: nextSafe({ isDev }),
+				headers: nextSafe({ isDev, contentSecurityPolicy: false }),
 			},
 		];
 	},
