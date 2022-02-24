@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "PORT=3128 next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "PORT=3128 next start"
   },
   "dependencies": {
     "@alch/alchemy-web3": "^1.1.9",
